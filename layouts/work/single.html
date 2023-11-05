@@ -1,0 +1,43 @@
+{{define "bodyMeta"}}class="work"{{end}}
+
+{{define "title"}}
+  {{.Title | markdownify | plainify}} — {{ .Site.Title }}
+{{end}}
+
+{{define "og:title"}}
+  {{- .Title | markdownify | plainify}} — {{ .Site.Title -}}
+{{end}}
+
+{{define "og:image"}}
+  {{((.Resources.Get .Params.Preview.image).Resize "2000x").Permalink}}
+{{end}}
+
+
+{{ define "main" }}
+  <main>
+    {{ partial "nav.html" . }}
+    <section>
+      <header>
+        <h1>{{.Title | markdownify}}</h1>
+      </header>
+    </section>
+    {{- with .Params.Data}}
+      <section> 
+        <dl>
+          {{range .}}
+            <dt><p>{{.title}}</p></dt>
+            <dd><p>{{.description}}</p></dd>
+          {{end}}
+        </dl>
+      </section>
+    {{end -}}
+    <section>
+      <article>
+        {{.Content}}
+      </article>
+    </section>
+    <section>
+      {{ partial "footer.html" . }}
+    </section>
+  </main>
+{{ end }}

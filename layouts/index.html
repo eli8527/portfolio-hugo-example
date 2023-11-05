@@ -1,0 +1,41 @@
+{{define "bodyMeta"}}class="home"{{end}}
+{{ define "main" }}
+  <header>
+    <div>
+      <section>
+        <article>
+          {{- with .Site.Params.Tagline }}
+            <h1>{{. | safeHTML}}</h1>
+          {{end -}}
+          {{.Content}}
+        </article>
+      </section>
+    </div>
+    <div>
+      <section>
+        {{ partial "footer.html" . }}
+      </section>
+    </div>
+  </header>
+  <main>
+    {{ partial "nav.html" . }}
+    
+    <ul class="work__list">
+      {{- range (sort (where .Site.RegularPages "Section" "work") ".Params.Order")}}
+        {{- $page := . -}}
+        <li>
+          <a href="{{.RelPermalink}}">
+            <article>
+              
+              <h3 id="{{.Title | urlize }}">{{.Title}}</h3>
+              <p>{{.Description | markdownify}}</p>
+            </article>
+          </a>
+        </li>
+      {{end -}}
+    </ul>    
+  </main>
+{{ end }}
+
+{{define "footer"}}
+{{end}}

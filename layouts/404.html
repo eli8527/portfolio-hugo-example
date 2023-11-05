@@ -1,0 +1,39 @@
+{{define "bodyMeta"}}class="404"{{end}}
+
+{{define "title"}}
+  {{.Title | markdownify | plainify}} — {{ .Site.Title }}
+{{end}}
+
+{{define "og:title"}}
+  {{- .Title | markdownify | plainify}} — {{ .Site.Title -}}
+{{end}}
+
+{{define "og:description"}}
+  {{- .Content | plainify | truncate 250 -}}
+{{end}}
+
+{{ define "main" }}
+  <main>
+    {{ partial "nav.html" . }}
+    <section>
+      <header>
+        <h1>{{.Title | markdownify}}</h1>
+      </header>
+    </section>
+    <section>
+      <article>
+        <p>
+          Unfortunately, you’ve reached the end of the <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">internet</a>. How about a nice <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/418">cup of tea</a>?
+        </p>
+        {{- $image := resources.Get "/images/418.jpg" -}}
+      </article>
+    </section>
+    <section>
+      {{ partial "footer.html" . }}
+    </section>
+  </main>
+{{ end }}
+
+{{define "footer"}}
+  
+{{end}}

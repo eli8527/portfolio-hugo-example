@@ -1,0 +1,16 @@
+<nav>
+  <p>
+    <a href="{{.Site.BaseURL}}" class="no-underline">
+      <span class="nav__name">Eric Li</span>
+    </a>
+  </p>
+  <ul>
+  {{ range .Site.Menus.main }}
+    <p>
+      <a href="{{ .URL }}" title="{{ .Title }}" class="no-underline">
+        {{- .Name -}}
+      </a>
+    </p>
+  {{ end }}
+  </ul>
+</nav>

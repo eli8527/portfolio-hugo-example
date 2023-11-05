@@ -1,0 +1,40 @@
+{{define "bodyMeta"}}class="about"{{end}}
+
+{{define "title"}}
+  {{.Title | markdownify | plainify}} — {{ .Site.Title }}
+{{end}}
+
+{{define "og:title"}}
+  {{- .Title | markdownify | plainify}} — {{ .Site.Title -}}
+{{end}}
+
+{{define "og:description"}}
+  {{- .Content | plainify | truncate 250 -}}
+{{end}}
+
+{{ define "main" }}
+  <main>
+    {{ partial "nav.html" . }}
+    <section>
+      <header>
+        <h1>{{.Title | markdownify}}</h1>
+      </header>
+    </section>
+    <section class="about__container">
+      <article>
+        {{.Content}}
+        <p>Site last updated on {{ now.Format "Mon, Jan 2, 2006"}}.</p>
+        <aside>
+          <p>{{.Params.Colophon | markdownify }}</p>
+        </aside>
+      </article>
+    </section>
+    <section>
+      {{ partial "footer.html" . }}
+    </section>
+  </main>
+{{ end }}
+
+{{define "footer"}}
+  
+{{end}}

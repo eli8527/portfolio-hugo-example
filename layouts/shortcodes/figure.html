@@ -1,0 +1,17 @@
+<figure>
+<img
+  {{ if .Get "video" }}
+    is-video="true"
+    src="{{.Get "src"}}"
+  {{ else }}
+    {{- $original := (.Page.Resources.ByType "image").GetMatch (printf "%s" (.Get "src")) -}}
+    {{- $resized := ($original.Resize "2000x") -}}
+    src="{{$resized.RelPermalink }}"
+    width="{{$resized.Width}}" 
+    height="{{$resized.Height}}"
+  {{ end }}
+/>
+{{ if .Get "caption" }}
+  <figcaption>{{.Get "caption" | markdownify}}</figcaption>
+{{ end }}
+</figure>

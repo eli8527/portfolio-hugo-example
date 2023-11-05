@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'NeueHaas';
+    src: url('NHaasGroteskTXPro-75Bd.woff2') format('woff2'),
+        url('NHaasGroteskTXPro-75Bd.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueHaas';
+    src: url('NHaasGroteskTXPro-56It.woff2') format('woff2'),
+        url('NHaasGroteskTXPro-56It.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeueHaas';
+    src: url('NHaasGroteskTXPro-55Rg.woff2') format('woff2'),
+        url('NHaasGroteskTXPro-55Rg.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeueHaas';
+    src: url('NHaasGroteskTXPro-76BdIt.woff2') format('woff2'),
+        url('NHaasGroteskTXPro-76BdIt.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+

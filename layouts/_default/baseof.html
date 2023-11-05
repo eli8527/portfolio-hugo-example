@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="initial-scale=1,width=device-width,viewport-fit=cover" name="viewport" />
+    {{- block "head" .}}{{ end -}}
+    {{- $favicon := resources.Get "/icons/favicon.ico" -}}
+    <link href="{{$favicon.RelPermalink}}" rel="icon" sizes="64x64" type="image/x-icon" />
+    {{- $faviconSvg := resources.Get "/icons/favicon.svg" -}}
+    <link href="{{$faviconSvg.RelPermalink}}" rel="icon" type="image/svg+xml" />
+    {{- $touchIcon := resources.Get "/icons/touch.png" -}}
+		<link href="{{$touchIcon.RelPermalink}}" rel="apple-touch-icon" />
+
+    <meta name="theme-color" content="#FAFAFA">
+    <title>
+      {{- block "title" . -}}
+        {{ .Site.Title }}
+      {{- end -}}
+    </title>
+
+    {{- block "opengraph" .}}
+      <meta content="{{block "og:image" . }}{{(resources.Get "/icons/preview.png").Permalink}}{{end}}" name="og:image" />
+      <meta content="{{block "og:title" .}}{{- .Site.Title -}}{{end}}" name="og:title" />
+      <meta content="{{block "og:description" . }}{{ htmlUnescape .Site.Params.Tagline | safeHTML }}{{end}}" name="og:description" />
+    {{end -}}
+
+    <meta content="{{ .Site.BaseURL }}" name="og:url" />
+    <meta content="website" name="og:type" />
+
+    {{ $sass := resources.Get "sass/main.scss" }}
+    {{ $options := (dict "enableSourceMap" (not hugo.IsProduction) "transpiler" "dartsass") }}
+    {{ $mainCss := $sass | resources.ToCSS $options}}
+    <link href="{{($mainCss | resources.Fingerprint "sha512").RelPermalink}}" rel="stylesheet" />
+
+    {{- $js := resources.Get "scripts/main.js" | js.Build -}}
+    <script src="{{($js | resources.Fingerprint "sha512").RelPermalink}}"></script>
+    
+    {{- with .Site.Params.Ga }}
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{.}}"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{.}}');
+      </script>
+    {{end -}}
+  </head>
+  <body {{ block "bodyMeta" .}}{{end}} {{ if hugo.IsProduction }}data-production="true"{{ end }}>
+    <!-- Code that all your templates share, like a header -->
+    {{ block "main" . }}
+      <!-- The part of the page that begins to differ between templates -->
+    {{ end }}
+    {{ block "footer" . }}
+    <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
+    {{ end }}
+  </body>
+</html>

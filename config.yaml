@@ -1,0 +1,21 @@
+baseURL: http://example.com/
+languageCode: en-us
+title: Your Website
+
+params:
+  ga: ''
+  tagline: ''
+
+permalinks:
+  work: /:slug/
+
+disableKinds:
+  - "section"
+  - "taxonomy"
+  - "term"
+  - "RSS"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
