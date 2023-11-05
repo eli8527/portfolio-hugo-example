@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Arnhem';
+    src: url('./Arnhem-Blond.woff2') format('woff2'),
+        url('./Arnhem-Blond.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Arnhem';
+    src: url('./Arnhem-BlackItalic.woff2') format('woff2'),
+        url('./Arnhem-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Arnhem';
+    src: url('./Arnhem-Bold.woff2') format('woff2'),
+        url('./Arnhem-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Arnhem';
+    src: url('./Arnhem-BoldItalic.woff2') format('woff2'),
+        url('./Arnhem-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Arnhem';
+    src: url('./Arnhem-Black.woff2') format('woff2'),
+        url('./Arnhem-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Arnhem';
+    src: url('./Arnhem-BlondItalic.woff2') format('woff2'),
+        url('./Arnhem-BlondItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Arnhem';
+    src: url('./Arnhem-NormalItalic.woff2') format('woff2'),
+        url('./Arnhem-NormalItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Arnhem';
+    src: url('./Arnhem-Normal.woff2') format('woff2'),
+        url('./Arnhem-Normal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
